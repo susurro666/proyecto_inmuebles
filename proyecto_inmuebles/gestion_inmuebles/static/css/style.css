@@ -1,0 +1,18 @@
+.card-title {
+    color: #757BD0;
+}
+
+
+
+.navbar-brand, .nav-link {
+    color: #9d75d0;
+    
+}
+
+.nav-link:hover, .navbar-brand:hover {
+    color:#757BD0 !important;
+}
+
+.footer-text{
+    color: #9d75d0
+}

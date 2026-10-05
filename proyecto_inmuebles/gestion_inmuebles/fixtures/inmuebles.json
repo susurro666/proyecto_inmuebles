@@ -1,0 +1,82 @@
+[
+{
+  "model": "gestion_inmuebles.inmueble",
+  "pk": 1,
+  "fields": {
+    "nombre": "cabaña a",
+    "descripcion": "aaa",
+    "m2_construidos": 1,
+    "m2_totales": 1,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banos": 1,
+    "direccion": "a",
+    "comuna": 1,
+    "tipo_inmueble": 1,
+    "precio_mensual": "0.01",
+    "dueno": 1,
+    "fecha_creacion": "2026-09-22T22:04:55.983Z",
+    "ultima_modificacion": "2026-09-22T22:04:55.983Z"
+  }
+},
+{
+  "model": "gestion_inmuebles.inmueble",
+  "pk": 2,
+  "fields": {
+    "nombre": "casa 2",
+    "descripcion": "aaaaaaaaa",
+    "m2_construidos": 1,
+    "m2_totales": 1,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banos": 1,
+    "direccion": "a",
+    "comuna": 1,
+    "tipo_inmueble": 1,
+    "precio_mensual": "0.01",
+    "dueno": 3,
+    "fecha_creacion": "2026-09-22T22:04:55.983Z",
+    "ultima_modificacion": "2026-09-22T22:04:55.983Z"
+  }
+},
+{
+  "model": "gestion_inmuebles.inmueble",
+  "pk": 3,
+  "fields": {
+    "nombre": "depto 3",
+    "descripcion": "aaa",
+    "m2_construidos": 1,
+    "m2_totales": 1,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banos": 1,
+    "direccion": "a",
+    "comuna": 1,
+    "tipo_inmueble": 1,
+    "precio_mensual": "0.01",
+    "dueno": 3,
+    "fecha_creacion": "2026-09-22T22:04:55.983Z",
+    "ultima_modificacion": "2026-09-22T22:04:55.983Z"
+  }
+},
+{
+  "model": "gestion_inmuebles.inmueble",
+  "pk": 4,
+  "fields": {
+    "nombre": "parecela 4",
+    "descripcion": "aaa",
+    "m2_construidos": 1,
+    "m2_totales": 1,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banos": 1,
+    "direccion": "a",
+    "comuna": 1,
+    "tipo_inmueble": 3,
+    "precio_mensual": "0.01",
+    "dueno": 3,
+    "fecha_creacion": "2026-09-22T22:04:55.983Z",
+    "ultima_modificacion": "2026-09-22T22:04:55.983Z"
+  }
+}
+]

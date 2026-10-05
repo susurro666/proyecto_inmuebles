@@ -1,0 +1,24 @@
+[
+{
+  "model": "gestion_inmuebles.usuario",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$vkaCPKypBC89N7TvieONbO$WHcSZ66Tq3uBeDKwVMVR59QKqYJYiyjAPJSYH6EEH5E=",
+    "last_login": "2026-09-22T22:01:44.854Z",
+    "is_superuser": true,
+    "username": "susurro",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-09-22T22:01:11.591Z",
+    "rut": "",
+    "direccion": null,
+    "telefono": null,
+    "tipo_usuario_defecto": "",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

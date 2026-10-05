@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block 'contenido' %}
+
+sitio en construcción
+
+<h2>Actualizar datos de perfil</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar</button>
+</form>
+
+{% endblock %}

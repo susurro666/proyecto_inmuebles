@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block 'contenido' %}
+
+<div class="my-4 border-bottom pb-2">
+    <h2>Panel de Control</h2>
+    <h5>Bienvenido, {{ request.user.username }}</h5>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <table class="table table-sm table-bordered bg-white">
+            <tbody>
+                <tr>
+                    <td class="bg-light fw-bold w-25 small">Nombre:</td>
+                    <td class="small">{{ request.user.first_name }}</td>
+                </tr>
+                <tr>
+                    <td class="bg-light fw-bold small">Apellidos:</td>
+                    <td class="small">{{ request.user.last_name }}</td>
+                </tr>
+                <tr>
+                    <td class="bg-light fw-bold small">Correo:</td>
+                    <td class="small">{{ request.user.email }}</td>
+                </tr>
+                <tr>
+                    <td class="bg-light fw-bold small">Tipo Perfil:</td>
+                    <td class="small text-capitalize"><span class="badge bg-dark">{{ user.tipo_usuario_defecto }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="mt-2">
+            <a class="btn btn-outline-dark btn-sm me-2" href="{% url 'actualizar_perfil' %}">Actualizar mis datos</a>
+            {% if user.tipo_usuario_defecto == 'arrendador' %}
+            <a class="btn btn-success btn-sm" href="{% url 'crear_inmueble' %}">Crear un inmueble</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% if user.tipo_usuario_defecto == 'arrendador' %}
+
+<h3 class="h5 mb-3 text-secondary">Mis Propiedades</h3>
+
+{% if inmuebles %}
+<div class="row">
+    {% for inmueble in inmuebles %}
+    <div class="col-md-6 mb-3">
+        <div class="p-3 bg-white border rounded">
+            <h4 class="h6 fw-bold mb-1">{{ inmueble.nombre }}</h4>
+            <p class="text-muted small mb-2">{{ inmueble.descripcion }}</p>
+
+            <ul class="list-unstyled small bg-light p-2 rounded border mb-2" style="font-size: 0.8rem;">
+                <li><strong>Precio:</strong> ${{ inmueble.precio_mensual|floatformat:0 }} / mes</li>
+                <li><strong>Ubicación:</strong> {{ inmueble.direccion }}, {{ inmueble.comuna }}</li>
+                <li><strong>Espacios:</strong> {{ inmueble.habitaciones }} Hab. / {{ inmueble.banos }} Baños</li>
+            </ul>
+
+            <a href="{% url 'actualizar_inmueble' inmueble.id %}" class="btn btn-sm btn-light border w-100">
+                Editar Propiedad
+            </a>
+            <form action="{% url 'borrar_inmueble' inmueble.id %}" method="POST" class="flex-grow-1"
+                onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta propiedad? Esta acción no se puede deshacer.');">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-danger w-100">
+                    Eliminar
+                </button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="p-4 bg-white border rounded text-center">
+    <p class="text-muted mb-0">Aún no tienes inmuebles. <a href="{% url 'crear_inmueble' %}">Agrega uno aquí</a>.</p>
+</div>
+{% endif %}
+
+{% else %}
+
+<div class="p-4 bg-white border rounded">
+    <p class="mb-0 small text-muted">Estás registrado como <strong>Arrendatario</strong>. Puedes volver al <a
+            href="{% url 'indice' %}">Inicio</a> para ver las ofertas disponibles en el sistema.</p>
+</div>
+{% endif %}
+
+{% endblock %}

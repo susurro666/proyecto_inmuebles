@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block 'contenido' %}
+
+<div class="my-4">
+    <h2>Propiedades Disponibles</h2>
+    <p class="text-muted small">lamentablemente, filtros decorativos u_u</p>
+</div>
+
+
+<div class="p-3 bg-light border rounded mb-4">
+    <form method="GET" action="{% url 'indice' %}" class="row g-2">
+        <div class="col-md-5">
+            <label for="region" class="form-label small fw-bold">Región:</label>
+            <select class="form-select form-select-sm" name="region" id="region">
+                <option value="">--- TODAS LAS REGIONES ---</option>
+                {% for region in regiones %}
+                <option value="{{ region.id }}">{{ region.nombre }} ({{ region.total_inmuebles }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-md-5">
+            <label for="comuna" class="form-label small fw-bold">Comuna:</label>
+            <select class="form-select form-select-sm" name="comuna" id="comuna">
+                <option value="">--- TODAS LAS COMUNAS ---</option>
+                {% for comuna in comunas %}
+                <option value="{{ comuna.id }}">{{ comuna.nombre }} ({{ comuna.total_inmuebles }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="col-md-2 align-self-end">
+            <button type="submit" class="btn btn-primary btn-sm w-100">Buscar</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="row">
+    {% for inmueble in inmuebles %}
+    <div class="col-md-6 mb-4">
+        
+        <div class="p-3 bg-white border rounded">
+            <div class="d-flex justify-content-between">
+                <h4 class="h5 fw-bold text-dark mb-1">{{ inmueble.nombre }}</h4>
+                <span class="badge bg-secondary">{{ inmueble.tipo_inmueble }}</span>
+            </div>
+            <p class="text-muted small mb-2">{{ inmueble.descripcion }}</p>
+            
+            
+            <ul class="list-unstyled small mb-2 p-2 bg-light rounded border">
+                <li><strong>Precio mensual:</strong> ${{ inmueble.precio_mensual }}</li>
+                <li><strong>Habitaciones:</strong> {{ inmueble.habitaciones }} | <strong>Baños:</strong> {{ inmueble.banos }}</li>
+                <li><strong>m² Construidos:</strong> {{ inmueble.m2_construidos }} m² | <strong>m² Totales:</strong> {{ inmueble.m2_totales }} m²</li>
+                <li><strong>Estacionamientos:</strong> {{ inmueble.estacionamientos }}</li>
+                <li><strong>Dirección:</strong> {{ inmueble.direccion }}, {{ inmueble.comuna }}</li>
+            </ul>
+            
+            <div class="text-muted" style="font-size: 0.75rem;">
+                Publicado por: {{ inmueble.dueno }} el {{ inmueble.fecha_creacion }}
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-warning text-center small">No se encontraron propiedades.</div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
