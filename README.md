@@ -44,15 +44,18 @@ pip install -r requirements.txt
 ```
 ---
 
-## 🗄️ Configuración de la Base de Datos
+##  Configuración de la Base de Datos
 
 Puedes elegir entre **SQLite** (recomendado para desarrollo rápido y pruebas) o **PostgreSQL** (recomendado para entornos más avanzados).
 
 Edita el archivo `tu_proyecto/settings.py` según el motor de base de datos que prefieras usar:
 
-### 🔹 Opción 1: postgres (Por defecto)
+### Opción 1: postgres (Por defecto)
 
-Necesitarás crear una base de datos en postgres llamada hito3, caso contrario, revisa el archivo /proyecto-inmueble/settings.py y copia esto donde dice DATABASES
+Necesitarás crear una base de datos en postgres llamada hito3
+
+### Opción 2: sqlite 
+si prefieres usar sqlite, el motor por defecto en django, revisa el archivo /proyecto-inmueble/settings.py y copia esto donde dice DATABASES
 
 ```python
 DATABASES = {
